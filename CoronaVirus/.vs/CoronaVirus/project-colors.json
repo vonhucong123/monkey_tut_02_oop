@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "9bb50274-8234-4ef1-b273-8041f7783dc6": {
+      "ProjectGuid": "9bb50274-8234-4ef1-b273-8041f7783dc6",
+      "DisplayName": "CoronaVirus",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
