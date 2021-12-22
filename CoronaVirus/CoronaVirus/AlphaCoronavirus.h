@@ -1,20 +1,35 @@
-#pragma once
+﻿#pragma once
 #include "Coronavirus.h"
+#include <list>
 #include <iostream>
+using namespace std;
+enum class Color
+{
+	BLUE,
+	RED
+};
+
 class AlphaCoronavirus:private Coronavirus
 {
 public:
-	void doBorn();
+	AlphaCoronavirus();				// oke
+	~AlphaCoronavirus();			// oke
 
-	void doClone();
+	void doBorn() override;			// oke
 
-	void doDie();
+	list<Coronavirus*> doClone() override;	// oke
 
-	void initResistance();
+	void doDie() override;					// oke			
 
-	int virusType();
+	// khởi tạo sức đề kháng của virus
+	void initResistance() override;			// oke
+
+	// trả về kiểu virus
+	int virusType() override;				// oke
+
+	void randomColor();				// oke
 protected:
-
+	Color m_color;
 private:
 };
 
