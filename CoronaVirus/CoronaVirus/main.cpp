@@ -11,4 +11,6 @@ int main()
 	cor.loadADNInformation();
 	string a = cor.getDna();
 	cout << a;
+	//Patient par;
+	//par.doStart();
 }
