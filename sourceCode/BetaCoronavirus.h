@@ -14,18 +14,18 @@ enum class Protein
 class BetaCoronavirus:private Coronavirus
 {
 public:
-	BetaCoronavirus();				// oke
+	BetaCoronavirus();				
 	~BetaCoronavirus();
 
-	void doBorn() override;					// oke
+	void doBorn() override;					
 
-	list<Coronavirus*> doClone() override;	// oke
+	list<Coronavirus*> doClone() override;	
 
-	void doDie() override;					// oke
+	void doDie() override;					
 
-	void initResistance() override;			// oke
+	void initResistance() override;			
 
-	int virusType() override;				//oke
+	int virusType() override;				
 
 	bool _isDie() override;
 protected:
