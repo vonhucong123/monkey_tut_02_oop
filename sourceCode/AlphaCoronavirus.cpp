@@ -24,6 +24,7 @@ AlphaCoronavirus::~AlphaCoronavirus()
 
 list<Coronavirus*> AlphaCoronavirus::doClone()
 {
+    // trả về 1 virus
     list<Coronavirus*> corList;
     Coronavirus corvi = AlphaCoronavirus(*this);
     corList.push_back(&corvi);
@@ -55,4 +56,16 @@ int AlphaCoronavirus::virusType()
 void AlphaCoronavirus::randomColor()
 {
     m_color = Color(rand() % 2);
+}
+
+bool AlphaCoronavirus::_isDie()
+{
+    if (m_resistance <= 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
