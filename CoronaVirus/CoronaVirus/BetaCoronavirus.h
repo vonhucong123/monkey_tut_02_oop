@@ -1,8 +1,10 @@
 #pragma once
 #include "Coronavirus.h"
+#include <list>
 #include <iostream>
+using namespace std;
 
-enum class m_protein
+enum class Protein
 {
 	NS3,
 	NS5,
@@ -12,16 +14,20 @@ enum class m_protein
 class BetaCoronavirus:private Coronavirus
 {
 public:
-	void doBorn();
+	BetaCoronavirus();				// oke
+	~BetaCoronavirus();
 
-	void doClone();
+	void doBorn() override;					// oke
 
-	void doDie();
+	list<Coronavirus*> doClone() override;	// oke
 
-	void initResistance();
+	void doDie() override;					// oke
 
-	int virusType();
+	void initResistance() override;			// oke
+
+	int virusType() override;				//oke
 protected:
+	Protein m_protein;
 
 private:
 
