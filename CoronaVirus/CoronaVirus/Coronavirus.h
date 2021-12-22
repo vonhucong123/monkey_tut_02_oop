@@ -1,6 +1,8 @@
 ﻿#pragma once
 #include <iostream>
 #include <string>
+#include <list>
+using namespace std;
 class Coronavirus
 {
 public:
@@ -16,26 +18,19 @@ public:
 
 	// load thông tin ADN từ file
 	void loadADNInformation();
-
-	// khi một bệnh nhân gọi hàm takeMedicine, 
-	// giống như việc bệnh nhân uống thuốc, 
-	// nó sẽ làm giảm sức đề kháng của virus. 
-	// Nếu m_resistance của virus <= 0, virus sẽ bị tiêu diệt. 
-	// Triển khai method ReduceResistance theo công thức :
-	// m_resistance = m_resistance – i_medicineResistance; 
+ 
 	void reduceResistance(int i_medicineResistance);
 
 	// hàm đại diện cho sự sinh ra của virus
 	virtual void doBorn();
 
 	// hàm sao chép tất cả các thuộc tính của nó sang một virus mới.
-	virtual void doClone();
+	virtual list<Coronavirus*> doClone();
 
 	// chức năng thể hiện rằng virus đã chết.
 	virtual void doDie();
 	virtual bool _isDie();
 	
-
 	// hàm khởi tạo sức đề kháng của virus và lưu trữ
 	virtual void initResistance();
 
