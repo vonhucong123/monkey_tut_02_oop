@@ -6,6 +6,12 @@
 #include <list>
 using namespace std;
 
+enum class State
+{
+	DIE,
+	ALIVE
+}; 
+
 class Patient
 {
 public:
@@ -13,7 +19,8 @@ public:
 	~Patient();
 	void setResistance(int& resi);
 	int getResistance();
-	void setState(int state);
+	State getState();
+	void setState(State &state);
 
 	// hởi tạo ngẫu nhiên sức đề kháng của 
 	// Bệnh nhân (1000-9000). Gọi nó trong Constructor.
@@ -25,18 +32,17 @@ public:
 
 	void takeMedicine();
 
+	// phóng thích tất cả đối tượng (m_virusList). Set m_state = DIE
+	void doDie();
 
 protected:
 	// sức đề kháng của bệnh nhân
 	int m_resistance;
 	// danh sách các virus của bệnh nhân
 	list<Coronavirus*> m_virusList;
-	// trạng thái sống chết
-	enum class m_state
-	{
-		DIE,
-		ALIVE
-	};
+	// trạng thái sống chết của virus
+	State m_state;
+
 private:
 
 };
