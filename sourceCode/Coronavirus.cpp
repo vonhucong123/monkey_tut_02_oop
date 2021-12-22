@@ -74,7 +74,8 @@ void Coronavirus::doBorn()
 
 list<Coronavirus*> Coronavirus::doClone()
 {
-	int numberCovid = 1;
+	// sinh ngẫu nhiên 1-5 virus
+	int numberCovid = rand() % (5 - 1 + 1) + 1;
 	list<Coronavirus*> corList;
 	for (int i = 0; i < numberCovid; i++)
 	{
