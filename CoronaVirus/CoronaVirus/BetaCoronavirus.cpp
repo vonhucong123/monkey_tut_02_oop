@@ -15,3 +15,8 @@ void BetaCoronavirus::doDie()
 void BetaCoronavirus::initResistance()
 {
 }
+
+int BetaCoronavirus::virusType()
+{
+    return 2;
+}
