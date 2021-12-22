@@ -11,6 +11,8 @@ public:
 	void doDie();
 
 	void initResistance();
+
+	int virusType();
 protected:
 
 private:
