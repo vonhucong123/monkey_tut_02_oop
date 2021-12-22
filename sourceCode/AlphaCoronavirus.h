@@ -12,22 +12,24 @@ enum class Color
 class AlphaCoronavirus:private Coronavirus
 {
 public:
-	AlphaCoronavirus();				// oke
-	~AlphaCoronavirus();			// oke
+	AlphaCoronavirus();				
+	~AlphaCoronavirus();			
 
-	void doBorn() override;			// oke
+	void doBorn() override;			
 
-	list<Coronavirus*> doClone() override;	// oke
+	list<Coronavirus*> doClone() override;
 
-	void doDie() override;					// oke			
+	void doDie() override;							
 
 	// khởi tạo sức đề kháng của virus
-	void initResistance() override;			// oke
+	void initResistance() override;			
 
 	// trả về kiểu virus
-	int virusType() override;				// oke
+	int virusType() override;				
 
-	void randomColor();				// oke
+	void randomColor();	
+
+	bool _isDie() override;
 protected:
 	Color m_color;
 private:
