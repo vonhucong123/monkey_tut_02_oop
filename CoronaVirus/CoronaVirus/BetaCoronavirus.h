@@ -2,6 +2,13 @@
 #include "Coronavirus.h"
 #include <iostream>
 
+enum class m_protein
+{
+	NS3,
+	NS5,
+	E
+};
+
 class BetaCoronavirus:private Coronavirus
 {
 public:
@@ -13,13 +20,9 @@ public:
 
 	void initResistance();
 
+	int virusType();
 protected:
-	enum class m_protein
-	{
-		NS3,
-		NS5,
-		E
-	};
+
 private:
 
 };
