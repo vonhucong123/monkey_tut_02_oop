@@ -1,4 +1,4 @@
-#include "Coronavirus.h"
+﻿#include "Coronavirus.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -58,6 +58,12 @@ void Coronavirus::loadADNInformation()
 
 void Coronavirus::reduceResistance(int i_medicineResistance)
 {
+	m_resistance = m_resistance - i_medicineResistance;
+	if (m_resistance <= 0)
+	{
+		// tiêu diệt virus
+		doDie();
+	}
 }
 
 void Coronavirus::doBorn()
@@ -70,8 +76,24 @@ void Coronavirus::doClone()
 
 void Coronavirus::doDie()
 {
+	m_resistance = 0;
+}
+
+bool Coronavirus::_isDie()
+{
+	if (m_resistance <= 0)
+	{
+		return true;
+	}
+	else 
+		return false;
 }
 
 void Coronavirus::initResistance()
 {
+}
+
+int Coronavirus::virusType()
+{
+	return 0;
 }
