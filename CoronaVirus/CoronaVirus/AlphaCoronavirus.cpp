@@ -15,3 +15,8 @@ void AlphaCoronavirus::doDie()
 void AlphaCoronavirus::initResistance()
 {
 }
+
+int AlphaCoronavirus::virusType()
+{
+    return 1;
+}
