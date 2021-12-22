@@ -19,8 +19,9 @@ void BetaCoronavirus::doBorn()
 
 list<Coronavirus*> BetaCoronavirus::doClone()
 {
+    // trả về 2 virus
     list<Coronavirus*> corList;
-    for (int i = 0; i < 1; i++)
+    for (int i = 0; i < 2; i++)
     {
         BetaCoronavirus *betaCorvi = new BetaCoronavirus(*this);
         corList.push_back(betaCorvi);
@@ -53,4 +54,16 @@ void BetaCoronavirus::initResistance()
 int BetaCoronavirus::virusType()
 {
     return 2;
+}
+
+bool BetaCoronavirus::_isDie()
+{
+    if (m_resistance <= 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
