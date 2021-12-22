@@ -3,6 +3,7 @@
 Patient::Patient()
 {
 	doStart();
+	initResistance();
 }
 
 Patient::~Patient()
@@ -40,25 +41,26 @@ void Patient::doStart()
 	char count = rand() % (20 - 10 + 1) + 10;
 	while (count != 0)
 	{
+		count--;
 		char rnd = rand() % (3 - 0 + 1) + 0;
 		switch (rnd)
 		{
 		case 1:
 		{
-			Coronavirus CoronaVi;
-			m_virusList.push_back(&CoronaVi);
+			Coronavirus *CoronaVi = new Coronavirus();
+			m_virusList.push_back(CoronaVi);
 			break;
 		}
 		case 2:
 		{
-			AlphaCoronavirus AlphaVi;
-			m_virusList.push_back((Coronavirus*)&AlphaVi);
+			AlphaCoronavirus *AlphaVi = new AlphaCoronavirus;
+			m_virusList.push_back((Coronavirus*)AlphaVi);
 			break;
 		}
 		default:
 		{
-			BetaCoronavirus BetaVi;
-			m_virusList.push_back((Coronavirus*)&BetaVi);
+			BetaCoronavirus *BetaVi = new BetaCoronavirus;
+			m_virusList.push_back((Coronavirus*)BetaVi);
 		}
 		}
 	}	
@@ -69,45 +71,32 @@ void Patient::takeMedicine()
 {
 	// lưu các số lượng virus không chết
 	// 0 - corona; 1 - alpha; 2 - beta
-	char numberVirusWillBeAdd[3] = {0,0,0};
+	list<Coronavirus*> corList;
+
 	for (auto const& i : m_virusList)
 	{
 		int i_medicineResistance = rand() % (60 - 1 + 1) + 1;
 		i->reduceResistance(i_medicineResistance);
+		// nếu virus không chết
+		// xét một lượt rồi kiểm tra sau
 		if (!i->_isDie())
-		{
-			int k = i->virusType();
-			numberVirusWillBeAdd[k]++;	
+		{	
+			list<Coronavirus*> corlist;
+			corlist = i->doClone();
+			corList.
+			
 		}
 	}
 
-	// virus nhân bản
-	for (int j = 0; j < 3; j++)
+	// xét sức đề kháng của bệnh nhân
+	int sumRes = 0;
+	for (auto const& i : m_virusList)
 	{
-		while (numberVirusWillBeAdd[j] > 0)
-		{
-			switch (j)
-			{
-			case 0:
-			{
-				Coronavirus CoronaVi;
-				m_virusList.push_back(&CoronaVi);
-				break;
-			}
-			case 1:
-			{
-				AlphaCoronavirus AlphaVi;
-				m_virusList.push_back((Coronavirus*)&AlphaVi);
-				break;
-			}
-			default:
-			{
-				BetaCoronavirus BetaVi;
-				m_virusList.push_back((Coronavirus*)&BetaVi);
-				break;
-			}
-			}
-		}
+		sumRes += i->getResistance();
+	}
+	if (sumRes > m_resistance)
+	{
+		doDie();
 	}
 }
 
