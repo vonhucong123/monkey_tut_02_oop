@@ -33,9 +33,14 @@ public:
 
 	// chức năng thể hiện rằng virus đã chết.
 	virtual void doDie();
+	virtual bool _isDie();
+	
 
 	// hàm khởi tạo sức đề kháng của virus và lưu trữ
 	virtual void initResistance();
+
+	// xác định loại virus (dùng để phân biệt các loại virus)
+	virtual int virusType();
 
 protected:
 	// lưu thứ tự của chuỗi axit nucleic (A, T, G, X) 
