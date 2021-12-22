@@ -22,17 +22,16 @@ public:
 	State getState();
 	void setState(State &state);
 
-	// hởi tạo ngẫu nhiên sức đề kháng của 
-	// Bệnh nhân (1000-9000). Gọi nó trong Constructor.
+	// hởi tạo ngẫu nhiên sức đề kháng của bẹnh nhân
 	void initResistance();
 
-	// Khởi tạo ngẫu nhiên tất cả virus(around 10 – 20 virus) và 
-	// thêm chúng vào m_virusList. all nó trong Constructor.Set m_state = ALIVE
+	// khởi tạo virus trong bệnh nhân
 	void doStart();
 
+	// bệnh nhân uống thuốc (thuốc đc random)
 	void takeMedicine();
-
-	// phóng thích tất cả đối tượng (m_virusList). Set m_state = DIE
+	
+	// người bệnh qua đời
 	void doDie();
 
 protected:
