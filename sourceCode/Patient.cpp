@@ -69,23 +69,32 @@ void Patient::doStart()
 
 void Patient::takeMedicine()
 {
-	// lưu các số lượng virus không chết
-	// 0 - corona; 1 - alpha; 2 - beta
-	list<Coronavirus*> corList;
-
+	// bệnh nhân uống thuốc
 	for (auto const& i : m_virusList)
 	{
 		int i_medicineResistance = rand() % (60 - 1 + 1) + 1;
 		i->reduceResistance(i_medicineResistance);
-		// nếu virus không chết
-		// xét một lượt rồi kiểm tra sau
+	}
+
+	// nhân bản virus
+	list<Coronavirus*> corList;
+	for (auto const i : m_virusList)
+	{
 		if (!i->_isDie())
-		{	
+		{
 			list<Coronavirus*> corlist;
-			corlist = i->doClone();
-			corList.
-			
+			corList = i->doClone();
+			for (auto const j : corlist)
+			{
+				corList.push_back(j);
+			}
 		}
+	}
+
+	// thêm các virus mới vào list
+	for (auto const i : corList)
+	{
+		m_virusList.push_back(i);
 	}
 
 	// xét sức đề kháng của bệnh nhân
