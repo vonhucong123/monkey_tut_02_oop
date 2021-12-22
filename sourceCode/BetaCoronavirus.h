@@ -26,6 +26,8 @@ public:
 	void initResistance() override;			// oke
 
 	int virusType() override;				//oke
+
+	bool _isDie() override;
 protected:
 	Protein m_protein;
 
