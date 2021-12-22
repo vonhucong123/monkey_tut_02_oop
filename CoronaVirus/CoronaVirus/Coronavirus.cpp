@@ -6,7 +6,8 @@ using namespace std;
 
 Coronavirus::Coronavirus()
 {
-
+	initResistance();
+	doBorn();
 }
 
 Coronavirus::Coronavirus(const Coronavirus& obj)
@@ -17,7 +18,7 @@ Coronavirus::Coronavirus(const Coronavirus& obj)
 
 Coronavirus::~Coronavirus()
 {
-
+	doDie();
 }
 
 void Coronavirus::setDna(std::string& dna)
@@ -68,10 +69,19 @@ void Coronavirus::reduceResistance(int i_medicineResistance)
 
 void Coronavirus::doBorn()
 {
+	loadADNInformation();
 }
 
-void Coronavirus::doClone()
+list<Coronavirus*> Coronavirus::doClone()
 {
+	int numberCovid = 1;
+	list<Coronavirus*> corList;
+	for (int i = 0; i < numberCovid; i++)
+	{
+		Coronavirus *corvi = new Coronavirus(*this);
+		corList.push_back(corvi);
+	}
+	return corList;
 }
 
 void Coronavirus::doDie()
@@ -89,8 +99,10 @@ bool Coronavirus::_isDie()
 		return false;
 }
 
+// khởi tạo sức đề kháng của virus
 void Coronavirus::initResistance()
 {
+	m_resistance = rand() % (30 - 10 + 1) + 10;
 }
 
 int Coronavirus::virusType()
